@@ -8,10 +8,10 @@ import (
 )
 
 func main() {
-	headline := Head("test.txt")
-	fmt.Printf("head = %s\n", headline)
-	tailline := Tail("test.txt")
-	fmt.Printf("tail = %s\n", tailline)
+	headLine := Head("test.txt")
+	fmt.Printf("head = %s\n", headLine)
+	tailLine := Tail("test.txt")
+	fmt.Printf("tail = %s\n", tailLine)
 }
 
 // ファイルの先頭行を表示する

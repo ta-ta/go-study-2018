@@ -8,10 +8,10 @@ import (
 
 func main() {
 	// コマンドライン引数をそのまま利用する
-	fmt.Printf("%v\n", os.Args)
+	fmt.Printf("os.Args = %v\n", os.Args)
 	for i, a := range os.Args {
 		// コマンドライン引数の型は文字列
-		fmt.Printf("%d %s\n", i, a)
+		fmt.Printf("os.Args[%d] = '%s'\n", i, a)
 	}
 
 	// オプションのパースを利用する

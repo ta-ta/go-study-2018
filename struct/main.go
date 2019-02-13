@@ -30,6 +30,7 @@ func (p *Pair) Double2() {
 	p.Right *= 2
 }
 
+// インタフェースの定義
 type Printer interface {
 	Print()
 }
@@ -38,6 +39,7 @@ func (p Pair) Print() {
 	fmt.Println(p.String())
 }
 
+// Pairとは別の構造体DummyPrinter
 type DummyPrinter struct {
 }
 
@@ -48,17 +50,17 @@ func (p DummyPrinter) Print() {
 func main() {
 	p := Pair{Left: 10, Right: 20}
 	// 構造体の中身を表示
-	fmt.Printf("%#v\n", p)
+	fmt.Printf("%#v\n\n", p)
 
 	// メソッド呼び出し
 	fmt.Printf("p.String() = %s\n", p.String())
-	fmt.Printf("p.Sum() = %d\n", p.Sum())
+	fmt.Printf("p.Sum() = %d\n\n", p.Sum())
 
 	p.Double1()
-	fmt.Printf("p.Double1() => %#v\n", p)
+	fmt.Printf("p.Double1() => %#v\n\n", p)
 
 	p.Double2()
-	fmt.Printf("p.Double2() => %#v\n", p)
+	fmt.Printf("p.Double2() => %#v\n\n", p)
 
 	// インターフェスの変数を宣言
 	var printer Printer

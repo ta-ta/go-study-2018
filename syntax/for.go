@@ -9,12 +9,16 @@ func main() {
 		fmt.Printf("i = %d\n", i)
 	}
 
+	fmt.Println()
+
 	// 条件文のみでも繰り返し可能
 	j := 1
 	for j < 20 {
 		fmt.Printf("j = %d\n", j)
 		j *= 2
 	}
+
+	fmt.Println()
 
 	// スライスの要素を列挙する
 	// i が index, e が要素として代入される
@@ -23,9 +27,18 @@ func main() {
 		fmt.Printf("i = %d, e = %d\n", i, e)
 	}
 
+	fmt.Println()
+
 	// 文字列の要素を列挙する
 	str := "Hello World"
 	for i, c := range str {
 		fmt.Printf("i = %d, c = %c\n", i, c)
+	}
+
+	fmt.Println()
+
+	// インデックスを使わない場合 -> `_` に代入
+	for _, c := range str {
+		fmt.Printf("c = %c\n", c)
 	}
 }

@@ -10,9 +10,13 @@ import (
 
 func main() {
 	ReadFile("test.txt")
+
+	fmt.Println()
+
 	ReadFileLine("test.txt")
 }
 
+// ReadFile ファイルの内容を一括で読み込む
 func ReadFile(filename string) {
 	// ファイルを開く
 	file, err := os.Open(filename)
@@ -28,12 +32,16 @@ func ReadFile(filename string) {
 		return
 	}
 
-	fmt.Print(string(data))
+	// 内容を出力
+	fmt.Printf("===== %s\n", filename)
+	fmt.Printf("%s\n", data)
+	fmt.Println("=====")
 
 	// ファイルを閉じる
 	file.Close()
 }
 
+// ReadFileLine ファイルの内容を一行ずつ読み込む
 func ReadFileLine(filename string) {
 	// ファイルを開く
 	file, err := os.Open(filename)
@@ -44,12 +52,14 @@ func ReadFileLine(filename string) {
 
 	// ファイルの内容を一行ずつ読む
 	reader := bufio.NewReader(file)
+	i := 1
 	for {
 		line, _, err := reader.ReadLine()
 		if err == io.EOF {
 			break
 		}
-		fmt.Println(string(line))
+		fmt.Printf("%d行目: %s\n", i, line)
+		i++
 	}
 
 	// ファイルを閉じる

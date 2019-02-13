@@ -1,10 +1,12 @@
+# 演習 - catコマンド
+
 ## 実行方法
 
 ```
-go run main.go [ファイル名]
+$ go run main.go [ファイル名]
 ```
 
 *.goのファイルを指定するとコンパイラがコンパイル対象と間違えてしまうので -- を付けて実行する
 ```
-go run main.go -- main.go
+$ go run main.go -- main.go
 ```

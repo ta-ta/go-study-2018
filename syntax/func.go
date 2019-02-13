@@ -6,23 +6,32 @@ import (
 )
 
 func main() {
+	// 関数hello
 	hello()
 
+	fmt.Println()
+
+	// 関数hello2
 	hello2("Hello World2")
 	hello2("Hello World!")
 
-	fmt.Printf("add(1, 2) = %d\n", add(1, 2))
+	fmt.Println()
 
+	// 関数add
+	fmt.Printf("add(1, 2) = %d\n\n", add(1, 2))
+
+	// 関数div
 	ret, err := div(10, 0)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Printf("err = '%v'\n", err)
 	}
+	fmt.Printf("ret = %d\n\n", ret)
 
 	ret, err = div(10, 2)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Printf("err = '%v'\n", err)
 	}
-	fmt.Printf("ret = %d\n", ret)
+	fmt.Printf("ret = %d\n\n", ret)
 
 	// ローカル関数の定義
 	f1 := func(a, b int) int {

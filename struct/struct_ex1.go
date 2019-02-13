@@ -5,30 +5,24 @@ import (
 	"math"
 )
 
+// 課題: 各構造体にフィールドとArea()メソッドを追加して面積を計算できるようにする
+
+// Shapeインタフェース
 type Shape interface {
-	// 面積を計算するメソッド
+	// 面積を計算するArea()メソッド
 	Area() float64
 }
 
+// Square構造体
 type Square struct {
 }
 
-func (s Square) Area() float64 {
-	return 0.0
-}
-
+// Rectangle構造体
 type Rectangle struct {
 }
 
-func (r Rectangle) Area() float64 {
-	return 0.0
-}
-
+// Triangle構造体
 type Triangle struct {
-}
-
-func (t Triangle) Area() float64 {
-	return 0.0
 }
 
 // 1辺の長さxを入力として初期化する
