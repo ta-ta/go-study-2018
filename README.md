@@ -9,4 +9,4 @@
 5. `arg`: コマンドライン引数
 6. `cat`: 演習 - catコマンド
 7. `struct`: 構造体とインタフェース
-8. `jsonf`: JSONを扱う
+8. `jsonf`: 演習 - JSON Formatter

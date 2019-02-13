@@ -1,4 +1,4 @@
-# JSONを扱う
+# JSON Formatterコマンド
 
 ## 実行方法
 
