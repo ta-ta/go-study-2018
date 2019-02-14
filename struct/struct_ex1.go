@@ -15,29 +15,44 @@ type Shape interface {
 
 // Square構造体
 type Square struct {
+	X float64
+}
+
+func (s Square) Area() float64 {
+	return s.X * s.X
 }
 
 // Rectangle構造体
 type Rectangle struct {
+	A, B float64
+}
+
+func (r Rectangle) Area() float64 {
+	return r.A * r.B
 }
 
 // Triangle構造体
 type Triangle struct {
+	A, B, Rad float64
+}
+
+func (t Triangle) Area() float64 {
+	return t.A * t.B * math.Sin(t.Rad) / 2
 }
 
 // 1辺の長さxを入力として初期化する
 func NewSquare(x float64) *Square {
-	return &Square{}
+	return &Square{X: x}
 }
 
 // 2辺の長さを入力として初期化する
 func NewRectangle(a, b float64) *Rectangle {
-	return &Rectangle{}
+	return &Rectangle{A: a, B: b}
 }
 
 // 2辺(a, b)とその間の角(rad)(ラジアン)を入力として初期化する
 func NewTriangle(a, b, rad float64) *Triangle {
-	return &Triangle{}
+	return &Triangle{A: a, B: b, Rad: rad}
 }
 
 func main() {
