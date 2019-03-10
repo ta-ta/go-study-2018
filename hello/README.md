@@ -1,29 +1,23 @@
 # Go言語の"Hello World"
 
-## 直接実行
-
-```sh
+## 実行ファイルを生成せず, 直接実行する
+``` sh
 $ go run hello.go
 ```
 
-## ビルドして実行
-
+## 実行ファイルを生成して実行する
 ### ビルド
-
-```sh
+``` sh
 $ go build
 ```
 
 ### 実行
-
 - Unix系の場合
-
-```sh
+``` sh
 $ ./hello
 ```
 
 - Windows系の場合
-
-```sh
+``` sh
 > hello.exe
 ```
