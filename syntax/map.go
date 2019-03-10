@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	// 連想配列: mapの初期化
+	// 連想配列: mapの宣言
 	// keyの値はint型, valueの値はstring型
 	m1 := map[int]string{}
 
@@ -11,13 +11,16 @@ func main() {
 	m1[20] = "cde"
 
 	// mapの中身確認
-	fmt.Printf("%v\n\n", m1)
+	fmt.Printf("%v\n", m1)
+	fmt.Println()
+	fmt.Println()
 
 	// mapの要素へのアクセス
 	fmt.Printf("m1[10] = %s, m1[20] = %s\n", m1[10], m1[20])
 
 	// 存在しない要素へのアクセス: 0値が返る
 	fmt.Printf("m1[30] = %s\n\n", m1[30])
+	fmt.Println()
 
 	// 要素が存在するかの判定
 	// 第二引数を指定すると存在するかのbool値が返る
@@ -29,6 +32,8 @@ func main() {
 	if el, ok := m1[30]; ok {
 		fmt.Printf("m1[30]は存在 (value = %s)\n\n", el)
 	}
+	fmt.Println()
+	fmt.Println()
 
 	// 要素を含めた宣言
 	m2 := map[string]int{

@@ -4,41 +4,15 @@ import (
 	"bufio"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 )
 
 func main() {
-	ReadFile("test.txt")
+	ReadFileLine("file/test.txt")
 
-	fmt.Println()
-
-	ReadFileLine("test.txt")
-}
-
-// ReadFile ファイルの内容を一括で読み込む
-func ReadFile(filename string) {
-	// ファイルを開く
-	file, err := os.Open(filename)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-
-	// ファイルの内容全てを読む
-	data, err := ioutil.ReadAll(file)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-
-	// 内容を出力
-	fmt.Printf("===== %s\n", filename)
-	fmt.Printf("%s\n", data)
-	fmt.Println("=====")
-
-	// ファイルを閉じる
-	file.Close()
+	/*
+		ReadFile("test.txt")
+	*/
 }
 
 // ReadFileLine ファイルの内容を一行ずつ読み込む
@@ -65,3 +39,30 @@ func ReadFileLine(filename string) {
 	// ファイルを閉じる
 	file.Close()
 }
+
+/*
+// ReadFile ファイルの内容を一括で読み込む
+func ReadFile(filename string) {
+	// ファイルを開く
+	file, err := os.Open(filename)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	// ファイルの内容全てを読む
+	data, err := ioutil.ReadAll(file)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	// 内容を出力
+	fmt.Printf("===== %s\n", filename)
+	fmt.Printf("%s\n", data)
+	fmt.Println("=====")
+
+	// ファイルを閉じる
+	file.Close()
+}
+*/

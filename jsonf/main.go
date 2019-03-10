@@ -1,17 +1,13 @@
 package main
 
-//
-// JSON Formatterの仕様
-// - コマンドライン引数で与えられたファイルの内容をJSONとして解釈,
-//   pretty printとして出力
-// - コマンドラインオプションでインデントレベル(タブの個数)を指定可能
-//
-// 追加仕様
-// - コマンドライン引数で与えられたファイルの内容をJSONとして解釈,
-//   minifyして出力する機能を追加
-// - pretty print, minifyのどちらで出力するかは,
-//   コマンドラインオプションの'mode'で変更可能
-//
+// JSON Formatter
+// コマンドラインオプションで指定したファイルをJSONとして解釈し,
+// pretty printで出力
+
+// コマンドラインオプション`mode`でpretty print, minifyを切り替えられるようにする
+// コマンドラインオプション`level`でインデントレベル(タブの個数)を指定できるようにする
+
+// 構造体を使うなど実装を工夫してみてください
 
 import (
 	"bytes"
@@ -24,35 +20,28 @@ import (
 	"strings"
 )
 
-type JsonFormatter interface {
-	Format() (string, error)
-}
-
-type JsonPrettyPrinter struct {
+type JsonFormatter struct {
+	Mode        string
 	IndentLevel int
 	Data        []byte
 }
 
-func (printer JsonPrettyPrinter) Format() (string, error) {
-	buf := bytes.Buffer{}
-	indent := strings.Repeat("\t", printer.IndentLevel)
-	err := json.Indent(&buf, printer.Data, "", indent)
-	if err != nil {
-		return "", err
-	}
-	return buf.String(), nil
-}
+func (printer JsonFormatter) Format() (string, error) {
+	buf := bytes.Buffer{} //
 
-type JsonMinifyPrinter struct {
-	Data []byte
-}
-
-func (printer JsonMinifyPrinter) Format() (string, error) {
-	buf := bytes.Buffer{}
-	err := json.Compact(&buf, printer.Data)
-	if err != nil {
-		return "", err
+	if printer.Mode == "mini" {
+		err := json.Compact(&buf, printer.Data)
+		if err != nil {
+			return "", err
+		}
+	} else {
+		indent := strings.Repeat("\t", printer.IndentLevel) // 文字列を繰り返す
+		err := json.Indent(&buf, printer.Data, "", indent)  //
+		if err != nil {
+			return "", err
+		}
 	}
+
 	return buf.String(), nil
 }
 
@@ -85,12 +74,8 @@ func main() {
 		inputFile.Close()
 	}
 
-	switch mode {
-	case "mini":
-		printer = JsonMinifyPrinter{Data: data}
-	default:
-		printer = JsonPrettyPrinter{Data: data, IndentLevel: level}
-	}
+	printer = JsonFormatter{Data: data, Mode: mode, IndentLevel: level}
+
 	output, err := printer.Format()
 	if err != nil {
 		log.Println(err)
