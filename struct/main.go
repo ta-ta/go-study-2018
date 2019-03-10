@@ -18,6 +18,39 @@ func (p Pair) Sum() int {
 	return p.Left + p.Right
 }
 
+func main() {
+	p := Pair{Left: 10, Right: 20}
+	// 構造体の中身を表示
+	fmt.Printf("%#v\n", p)
+	fmt.Println()
+
+	// メソッド呼び出し
+	fmt.Printf("p.String() = %s\n", p.String())
+	fmt.Printf("p.Sum() = %d\n", p.Sum())
+	fmt.Println()
+
+	/*
+		p.Double1()
+		fmt.Printf("p.Double1() => %#v\n\n", p)
+
+		p.Double2()
+		fmt.Printf("p.Double2() => %#v\n\n", p)
+
+
+			// インターフェスの変数を宣言
+			var printer Printer
+
+			// Pairを代入
+			printer = p
+			printer.Print()
+
+			// DummyPrinterを代入
+			printer = DummyPrinter{}
+			printer.Print()
+	*/
+}
+
+/*
 // 構造体の値を変更する(NG)
 func (p Pair) Double1() {
 	p.Left *= 2
@@ -46,30 +79,4 @@ type DummyPrinter struct {
 func (p DummyPrinter) Print() {
 	fmt.Println("dummy printer")
 }
-
-func main() {
-	p := Pair{Left: 10, Right: 20}
-	// 構造体の中身を表示
-	fmt.Printf("%#v\n\n", p)
-
-	// メソッド呼び出し
-	fmt.Printf("p.String() = %s\n", p.String())
-	fmt.Printf("p.Sum() = %d\n\n", p.Sum())
-
-	p.Double1()
-	fmt.Printf("p.Double1() => %#v\n\n", p)
-
-	p.Double2()
-	fmt.Printf("p.Double2() => %#v\n\n", p)
-
-	// インターフェスの変数を宣言
-	var printer Printer
-
-	// Pairを代入
-	printer = p
-	printer.Print()
-
-	// DummyPrinterを代入
-	printer = DummyPrinter{}
-	printer.Print()
-}
+*/
