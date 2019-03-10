@@ -36,7 +36,7 @@ func (printer JsonFormatter) Format() (string, error) {
 		}
 	} else {
 		indent := strings.Repeat("\t", printer.IndentLevel) // 文字列を繰り返す
-		err := json.Indent(&buf, printer.Data, "", indent)  //
+		err := json.Indent(&buf, printer.Data, "a", indent) //
 		if err != nil {
 			return "", err
 		}
