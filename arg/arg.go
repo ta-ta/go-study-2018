@@ -37,8 +37,11 @@ func main() {
 	flag.Parse()
 
 	fmt.Printf("num = %d\n", num)
+	fmt.Printf("name = %v\n", name)
 	fmt.Printf("help = %v\n", help)
+
 	fmt.Printf("args = %v\n", flag.Args()) // 解析できなかったもの
+
 	if help {
 		flag.PrintDefaults()
 	}
