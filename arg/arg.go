@@ -38,7 +38,7 @@ func main() {
 
 	fmt.Printf("num = %d\n", num)
 	fmt.Printf("help = %v\n", help)
-	fmt.Printf("args = %v\n", flag.Args()) // 解析できなかったもの
+	fmt.Printf("args = %v\n", flag.Args()) // オプション以外の引数
 	if help {
 		flag.PrintDefaults()
 	}
