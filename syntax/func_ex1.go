@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	// 0からNまでの和を計算する関数Sum(N)を作成する
+	// 0 から n までの和を計算する関数Sum(n) を作成する
 	fmt.Printf("Sum(100) = %d\n", Sum(100))
-	// 出力: "Sum(100) = 5050"
+	// 出力例: "Sum(100) = 5050"
 }
 
 // 0 から n までの数字の和を計算する関数
