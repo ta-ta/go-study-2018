@@ -11,7 +11,7 @@ func main() {
 	ReadFileLine("file/test.txt")
 
 	/*
-		ReadFile("test.txt")
+		ReadFile("file/test.txt")
 	*/
 }
 
@@ -25,10 +25,10 @@ func ReadFileLine(filename string) {
 	}
 
 	// ファイルの内容を一行ずつ読む
-	reader := bufio.NewReader(file)
+	reader := bufio.NewReader(file) //Reader を返す
 	i := 1
 	for {
-		line, _, err := reader.ReadLine()
+		line, _, err := reader.ReadLine() // ReadLine によって一行ずつ, byte配列を返す
 		if err == io.EOF {
 			break
 		}
@@ -51,7 +51,7 @@ func ReadFile(filename string) {
 	}
 
 	// ファイルの内容全てを読む
-	data, err := ioutil.ReadAll(file)
+	data, err := ioutil.ReadAll(file) // byte配列を返す
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -59,7 +59,7 @@ func ReadFile(filename string) {
 
 	// 内容を出力
 	fmt.Printf("===== %s\n", filename)
-	fmt.Printf("%s\n", data)
+	fmt.Printf("%s\n", data) // []byteも%s
 	fmt.Println("=====")
 
 	// ファイルを閉じる
