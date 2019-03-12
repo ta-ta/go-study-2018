@@ -37,16 +37,16 @@ func main() {
 		fmt.Printf("p.Double2() => %#v\n\n", p)
 
 
-			// インターフェスの変数を宣言
-			var printer Printer
+		// インターフェスの変数を宣言
+		var printer Printer
 
-			// Pairを代入
-			printer = p
-			printer.Print()
+		// Pairを代入
+		printer = p
+		printer.Print()
 
-			// DummyPrinterを代入
-			printer = DummyPrinter{}
-			printer.Print()
+		// DummyPrinterを代入
+		printer = DummyPrinter{}
+		printer.Print()
 	*/
 }
 
