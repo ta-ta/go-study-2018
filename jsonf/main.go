@@ -27,16 +27,16 @@ type JsonFormatter struct {
 }
 
 func (printer JsonFormatter) Format() (string, error) {
-	buf := bytes.Buffer{} //
+	buf := bytes.Buffer{} // Buffer型の変数を用意
 
 	if printer.Mode == "mini" {
-		err := json.Compact(&buf, printer.Data)
+		err := json.Compact(&buf, printer.Data) // minifyしてbufに格納
 		if err != nil {
 			return "", err
 		}
 	} else {
 		indent := strings.Repeat("\t", printer.IndentLevel) // 文字列を繰り返す
-		err := json.Indent(&buf, printer.Data, "a", indent) //
+		err := json.Indent(&buf, printer.Data, "", indent)  // indentされた文字列をbufに格納
 		if err != nil {
 			return "", err
 		}
