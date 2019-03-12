@@ -1,9 +1,7 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"io"
 	"io/ioutil"
 	"os"
 )
@@ -11,9 +9,9 @@ import (
 func main() {
 	ReadFile("test.txt")
 
-	fmt.Println()
-
-	ReadFileLine("test.txt")
+	/*
+		ReadFileLine("test.txt")
+	*/
 }
 
 // ReadFile ファイルの内容を一括で読み込む
@@ -41,6 +39,7 @@ func ReadFile(filename string) {
 	file.Close()
 }
 
+/*
 // ReadFileLine ファイルの内容を一行ずつ読み込む
 func ReadFileLine(filename string) {
 	// ファイルを開く
@@ -65,3 +64,4 @@ func ReadFileLine(filename string) {
 	// ファイルを閉じる
 	file.Close()
 }
+*/
