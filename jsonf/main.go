@@ -1,13 +1,12 @@
 package main
 
 // JSON Formatter
-// コマンドラインオプションで指定したファイルをJSONとして解釈し,
-// pretty printで出力
+// - コマンドラインオプションで与えられたファイルの内容をJSONとして解釈,
+//   pretty printとして出力
+// - コマンドラインオプションでインデントレベル(タブの個数)を指定できるようにする
 
-// コマンドラインオプション`mode`でpretty print, minifyを切り替えられるようにする
-// コマンドラインオプション`level`でインデントレベル(タブの個数)を指定できるようにする
-
-// 構造体を使うなど実装を工夫してみてください
+// 追加仕様
+// - コマンドラインオプション -mode によってminify出力できるようにする
 
 import (
 	"bytes"
@@ -27,16 +26,16 @@ type JsonFormatter struct {
 }
 
 func (printer JsonFormatter) Format() (string, error) {
-	buf := bytes.Buffer{} //
+	buf := bytes.Buffer{} // Buffer型の変数を用意
 
 	if printer.Mode == "mini" {
-		err := json.Compact(&buf, printer.Data)
+		err := json.Compact(&buf, printer.Data) // minifyしてbufに格納
 		if err != nil {
 			return "", err
 		}
 	} else {
 		indent := strings.Repeat("\t", printer.IndentLevel) // 文字列を繰り返す
-		err := json.Indent(&buf, printer.Data, "a", indent) //
+		err := json.Indent(&buf, printer.Data, "", indent)  // indentされた文字列をbufに格納
 		if err != nil {
 			return "", err
 		}
