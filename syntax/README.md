@@ -19,5 +19,6 @@ $ go run [実行したいファイル名]
     - `./for_ex1.go`: 演習5
 5. `./func.go`: 関数
     - `./func_ex1.go`: 演習6
+    - `./func_ex2.go`: 演習7
 6. `./map.go`: 連想配列
-    - `./map_ex1.go`: 演習7
+    - `./map_ex1.go`: 演習8
